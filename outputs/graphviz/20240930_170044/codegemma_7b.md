@@ -1,0 +1,35 @@
+```dot
+digraph deepfacelab {
+    rankdir="LR";
+
+    subgraph cluster_preprocessing {
+        label="Image Preprocessing";
+        image_loader -> image_resizer;
+        image_resizer -> image_converter;
+        image_converter -> image_normalizer;
+    }
+
+    subgraph cluster_face_detector {
+        label="Face Detector";
+        face_detector -> face_landmarks;
+        face_landmarks -> face_enhancer;
+    }
+
+    subgraph cluster_faceswap {
+        label="Faceswap";
+        image_normalizer -> face_detector;
+        face_enhancer -> face_swapper;
+        face_swapper -> swapped_image;
+    }
+
+    image_loader [label="Image Loader"];
+    image_resizer [label="Image Resizer"];
+    image_converter [label="Image Converter"];
+    image_normalizer [label="Image Normalizer"];
+    face_detector [label="Face Detector"];
+    face_landmarks [label="Face Landmarks"];
+    face_enhancer [label="Face Enhancer"];
+    face_swapper [label="Face Swapper"];
+    swapped_image [label="Swapped Image"];
+}
+```

@@ -1,0 +1,8 @@
+The first step is to create a new branch in your repository for the bugfix.
+
+1. Create a new branch in your repository by running `git checkout -b bugfix-<issue#>` where `<issue#>` is the number of the issue you are trying to fix. This will create a new branch that you can use to make changes and commit them without affecting the main branch.
+2. Make the necessary changes to fix the issue in your local repository. You can do this by running `git add <file-name>` for each file you want to stage, followed by `git commit -m "Fixed <issue#>"` to create a new commit with the changes.
+3. Once you have made all the necessary changes, push them to your remote repository using `git push origin bugfix-<issue#>`. This will update the branch in your remote repository with the changes you made locally.
+4. Create a pull request from the bugfix branch to the main branch by going to your repository on GitHub and clicking on the "Pull requests" tab. From there, click the "New pull request" button and select the bugfix branch as the source branch and the main branch as the target branch. Write a clear description of the changes you made in the pull request, including the issue number and a brief explanation of what you fixed.
+5. Once your pull request is created, someone from the community will review it and provide feedback. If there are any issues with your pull request, you can make updates to your branch and push them again. When all reviews have been approved, your pull request will be merged into the main branch.
+6. Once the pull request has been merged, delete your bugfix branch by running `git branch -d bugfix-<issue#>` in your local repository. This will remove the branch from your local repository and free up some space on your hard drive.

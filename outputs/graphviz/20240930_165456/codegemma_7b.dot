@@ -1,0 +1,26 @@
+digraph deepfacelab {
+    subgraph cluster_preprocessing {
+        label = "Image Preprocessing";
+        ImagePreprocessor -> ImageResizer;
+        ImagePreprocessor -> ImageNormalizer;
+    }
+
+    subgraph cluster_face_extraction {
+        label = "Face Extraction";
+        FaceDetector -> FaceExtractor;
+    }
+
+    subgraph cluster_face_alignment {
+        label = "Face Alignment";
+        LandmarkDetector -> FaceAligner;
+    }
+
+    subgraph cluster_face_swapping {
+        label = "Face Swapping";
+        FaceSwapper -> VideoGenerator;
+    }
+
+    ImagePreprocessor -> FaceDetector;
+    FaceExtractor -> FaceAligner;
+    FaceAligner -> FaceSwapper;
+}
